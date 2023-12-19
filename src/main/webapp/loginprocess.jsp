@@ -27,8 +27,10 @@ try{
 	while(rs.next()){
 		String n = rs.getString(2);
 		String p = rs.getString(3);
+		System.out.println(n+" "+p+" "+uname+" "+pass);
 		if(n.equals(uname) && p.equals(pass)){
 			type = rs.getString(4);
+			System.out.println(type);
 			session.setAttribute("type",type);
 			session.setAttribute("name", n);
 			response.sendRedirect("./index.jsp");

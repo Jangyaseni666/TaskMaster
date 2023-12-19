@@ -61,13 +61,13 @@
 
 <div class="container">
 <%
-	String type = (String)session.getAttribute("type");
- 	String name = (String)session.getAttribute("name");
-	if(name!=null){
+String type = (String)session.getAttribute("type");
+String name = (String)session.getAttribute("name");
+if(name!=null){
 %>
-	<div class="welcome-container">
-        <h3 class="welcome-text">WELCOME! <%=name %></h3>
-    </div>
+<div class="welcome-container">
+   <h3 class="welcome-text">WELCOME! <%=name %></h3>
+</div>
 <%
 	}else{
 		out.println(session.getAttribute("msg"));

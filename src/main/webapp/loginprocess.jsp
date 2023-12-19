@@ -25,6 +25,7 @@ try{
 	PreparedStatement pst=con.prepareStatement("select * from employees");
 	rs = pst.executeQuery();
 	while(rs.next()){
+		int id = rs.getInt(1);
 		String n = rs.getString(2);
 		String p = rs.getString(3);
 		System.out.println(n+" "+p+" "+uname+" "+pass);
@@ -33,6 +34,7 @@ try{
 			System.out.println(type);
 			session.setAttribute("type",type);
 			session.setAttribute("name", n);
+			session.setAttribute("id",id);
 			response.sendRedirect("./index.jsp");
 		}else{
 			session.setAttribute("msg","Wrong Credentials! Login Again!!"+uname+pass);

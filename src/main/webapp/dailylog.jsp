@@ -21,18 +21,18 @@
 	}
 	
 %>
-<form action="tasksubmit.jsp" method="post">
-    <label><input type="checkbox" name="Code Review" value="8"> Code Review</label><br>
-    <label><input type="checkbox" name="Feature Development" value="12"> Feature Development</label><br>
-    <label><input type="checkbox" name="task" value="10"> Bug Fixing</label><br>
-    <label><input type="checkbox" name="task" value="6"> Sprint Planning</label><br>
-    <label><input type="checkbox" name="task" value="6"> Daily Standup</label><br>
-    <label><input type="checkbox" name="task" value="10"> Testing</label><br>
-    <label><input type="checkbox" name="task" value="6"> Documentation</label><br>
-    <label><input type="checkbox" name="task" value="6"> Meetings</label><br>
-    <label><input type="checkbox" name="task" value="6"> Code Refactoring</label><br>
-    <label><input type="checkbox" name="task" value="6"> Research and Learning</label><br>
-
+<form action="taskApprove.jsp" method="post">
+	<label>Day: </label><input type="date" name="day">
+    <label><input type="checkbox" name="task" value="Code Review"> Code Review</label><br>
+    <label><input type="checkbox" name="task" value="Feature Development"> Feature Development</label><br>
+    <label><input type="checkbox" name="task" value="Bug Fixing"> Bug Fixing</label><br>
+    <label><input type="checkbox" name="task" value="Sprint Planning"> Sprint Planning</label><br>
+    <label><input type="checkbox" name="task" value="Daily Standup"> Daily Standup</label><br>
+    <label><input type="checkbox" name="task" value="Testing"> Testing</label><br>
+    <label><input type="checkbox" name="task" value="Documentation"> Documentation</label><br>
+    <label><input type="checkbox" name="task" value="Meetings"> Meetings</label><br>
+    <label><input type="checkbox" name="task" value="Code Refactoring"> Code Refactoring</label><br>
+    <label><input type="checkbox" name="task" value="Research and Learning"> Research and Learning</label><br>
     <br>
     <input type="submit" value="Submit">
 </form>

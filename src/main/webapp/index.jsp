@@ -8,7 +8,7 @@
 </head>
 <body>
 <%
-	String type = session.getAttribute("type")+"";
+	String type = (String)session.getAttribute("type");
 	if(type!=null){
 		out.println("Welcome, "+type);
 	}else{

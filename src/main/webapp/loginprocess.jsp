@@ -24,23 +24,32 @@ try{
 	System.out.println("Database Connected ****");
 	PreparedStatement pst=con.prepareStatement("select * from employees");
 	rs = pst.executeQuery();
+	int flag=0;
 	while(rs.next()){
 		int id = rs.getInt(1);
-		String n = rs.getString(2);
-		String p = rs.getString(3);
+		String n = rs.getString(2).trim();
+		String p = rs.getString(3).trim();
 		System.out.println(n+" "+p+" "+uname+" "+pass);
 		if(n.equals(uname) && p.equals(pass)){
 			type = rs.getString(4);
-			System.out.println(type);
+			flag=1;
+			//	System.out.println(n.equals(uname) && p.equals(pass));
 			session.setAttribute("type",type);
 			session.setAttribute("name", n);
 			session.setAttribute("id",id);
-			response.sendRedirect("./index.jsp");
-		}else{
-			session.setAttribute("msg","Wrong Credentials! Login Again!!"+uname+pass);
-			response.sendRedirect("./index.jsp");
+			if(type.equals("EMPLOYEE")){
+				//System.out.println("here");
+				response.sendRedirect("dailylog.jsp");
+			}
+			else if(type.equals("SUPERVISOR")){
+				//System.out.println("here");
+				response.sendRedirect("./taskApprove.jsp");
+			}
 		}
+		//response.sendRedirect("dailylog.jsp");
 	}
+	
+	if(flag == 0) response.sendRedirect("login.jsp?error=true");
 } catch(Exception e){
 	out.print(e);
 }

@@ -41,6 +41,10 @@
             transform: translateY(-50%);
             cursor: pointer;
         }
+        #error{
+            font-size: large;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -61,6 +65,12 @@
                 </span>
             </div>
             <button type="submit" class="btn btn-secondary btn-block">Login</button>
+
+            <% if (request.getParameter("error") != null) {
+            	System.out.println(request.getParameter("error"));
+            %>
+                <p id="error" class="text-danger text-center mt-3">Wrong credentials. Try Again !!</p>
+            <% } %>
         </form>
     </div>
 </div>

@@ -43,7 +43,10 @@ try{
 			}
 			else if(type.equals("SUPERVISOR")){
 				//System.out.println("here");
-				response.sendRedirect("./taskApprove.jsp");
+				response.sendRedirect("./supervisor_dashboard.jsp");
+			}
+			else{
+				response.sendRedirect("./admin_dashboard.jsp");
 			}
 		}
 		//response.sendRedirect("dailylog.jsp");

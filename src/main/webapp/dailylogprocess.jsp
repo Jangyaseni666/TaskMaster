@@ -61,8 +61,8 @@ try{
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/iwt", "root", "");
 
-	int id = (int)session.getAttribute("id");
-	String name = (String)session.getAttribute("name");
+	int id = Integer.parseInt(request.getParameter("id"));
+	String name = request.getParameter("name");
 
 	PreparedStatement pst=con.prepareStatement("replace into empmarks(id,name,marks,day) values(?,?,?,?)");
 	pst.setInt(1,id);
@@ -72,11 +72,18 @@ try{
 
 	int i = pst.executeUpdate();
 	if(i>0){
-		out.println("Entered");
+		response.sendRedirect("supervisor_dashboard.jsp");
 	}else{
 		out.println("NOt entered");
 	}
 	
+	pst.close();
+	
+	PreparedStatement p=con.prepareStatement("delete from pending where name=? and days=?");
+	p.setString(1, name);
+	p.setDate(2, date);
+	i = p.executeUpdate();
+	p.close();
 }catch (Exception e){
 	out.println(e);
 	

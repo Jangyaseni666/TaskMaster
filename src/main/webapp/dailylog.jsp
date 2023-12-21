@@ -78,7 +78,7 @@ if(name!=null){
     
     <div class="log-container">
         <h2>Daily Log</h2>
-        <form id="dailyLogForm" class="pt-3" action="taskApprove.jsp" method="post">
+        <form id="dailyLogForm" class="pt-3" action="taskAdd.jsp" method="post">
         <input type="hidden" name="type" value="<%=type%>">
         <!-- <input type="hidden" value="check" name="check"> -->
         	<div class="form-group">

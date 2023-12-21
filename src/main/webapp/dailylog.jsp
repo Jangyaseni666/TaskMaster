@@ -21,7 +21,7 @@
 	}
 	
 %>
-<form action="taskApprove.jsp" method="post">
+<form action="taskAdd.jsp" method="post">
 	<label>Day: </label><input type="date" name="day">
     <label><input type="checkbox" name="task" value="Code Review"> Code Review</label><br>
     <label><input type="checkbox" name="task" value="Feature Development"> Feature Development</label><br>

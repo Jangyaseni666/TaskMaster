@@ -10,12 +10,12 @@
 
 <%!
 	Connection con;
-	ResultSet rs;
+	ResultSet rs, rs1;
 %>
 <%
 	String type = (String)session.getAttribute("type");
 	if(!type.equals("ADMIN")){
-		response.redirect("login.jsp");
+		response.sendRedirect("login.jsp");
 	}
 	String name = (String)session.getAttribute("name");
 %>
@@ -24,19 +24,52 @@
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/iwt", "root", "");
-	
-	PreparedStatement pst = con.prepareStatement("select * from employee");
+	System.out.println("Connected");
+	PreparedStatement pst = con.prepareStatement("select * from employees");
 	rs = pst.executeQuery();
 	int i = 1;
-	System.out.println("Sl.No\tName\tType");
+	%>
+	<table border="2" cellpadding="5">
+		<tr>
+			<th>Sl.No</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Total Points</th>
+			<th>Performance Review</th>
+		</tr>
+	<%
+	int sum=0;
 	while(rs.next()){
 		String nm = rs.getString(2);
 		String kind = rs.getString(4);
-		System.out.println(i+"\t"+nm+"\t"+kind);
+		PreparedStatement ps = con.prepareStatement("select sum(marks) from empmarks where name=?");
+		ps.setString(1,nm);
+		rs1 = ps.executeQuery();
+		while(rs1.next()){
+			sum = rs1.getInt(1);
+		}
+		String rev="";
+		if(sum>= 200) rev = "Excellent";
+		double val = ((sum/280.0)*100);
+		String str = String.format("%.2f", val);
+		%>
+		<tr>
+			<td><%=i%></td>
+			<td><%=nm%></td>
+			<td><%=kind%></td>
+			<!--  <td><button><a href="checkReview.jsp?<%=nm%>">Check</a></button></td>-->
+			<td><%=sum%></td>
+			<td><%=str%></td>
+		</tr>
+		<%
+		i++;
 	}
+	%>
+	</table>
+	<%
 	
 }catch(Exception e){
-	
+	out.println(e);
 }
 
 %>

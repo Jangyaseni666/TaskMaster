@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
         body {
-            background-color: #333;
+            background-color: #dcd5f4;
         }
 
         .login-container {
@@ -48,7 +48,7 @@
     </style>
 </head>
 <body>
-
+<%@include file="navbar.jsp" %>
 <div class="container">
     <div class="login-container">
         <h2>Login</h2>

@@ -31,7 +31,7 @@
         }
 
         .accordion-header {
-            background-color: #007BFF;
+            background-color: #8875f1;
             color: #fff;
             padding: 15px;
             cursor: pointer;
@@ -90,6 +90,7 @@
 </head>
 
 <body class="bg-light">
+<%@include file="navbar.jsp" %>
     <%!
 	Connection con;
 	String task[] = new String[10];
@@ -112,13 +113,13 @@ try{
     %>
 
     <div class="container mt-5">
-        <!-- <h1 class="text-center mb-4 border-bottom border-secondary">Supervisor Dashboard</h1> -->
+        <h1 class="text-center mb-4 border-bottom border-secondary">Supervisor Dashboard</h1>
         
-        <div class="d-flex justify-content-between align-items-center mb-4 border-bottom border-secondary">
+        <!-- <div class="d-flex justify-content-between align-items-center mb-4 border-bottom border-secondary">
             <h1 class="text-center mb-0">Supervisor Dashboard</h1>
             <a href="logout.jsp" class="btn btn-danger">Logout</a>
             
-        </div>
+        </div> -->
 
         <% if(rs == null) out.println("No pending tasks");
 
@@ -137,7 +138,7 @@ try{
         <div class="card accordion-card">
             <div class="accordion-header">
                 <span><%=n%></span>
-                <button class="btn btn-info" onclick="toggleAccordion('task<%=i%>', 'foot<%=i%>')">View Tasks</button>
+                <button class="btn btn-dark" onclick="toggleAccordion('task<%=i%>', 'foot<%=i%>')">View Tasks</button>
             </div>
             <form action="dailylogprocess.jsp" method="post">
             	<input type="hidden" name="name" value="<%=n%>">
@@ -191,11 +192,11 @@ try{
             if (accordionContent.style.display === 'none') {
                 accordionContent.style.display = 'block';
                 accordionFooter.style.display = 'block';
-                document.querySelector('.btn-info').textContent = 'Hide Tasks';
+                document.querySelector('.btn-dark').textContent = 'Hide Tasks';
             } else {
                 accordionContent.style.display = 'none';
                 accordionFooter.style.display = 'none';
-               document.querySelector('.btn-info').textContent = 'View Tasks';
+               document.querySelector('.btn-dark').textContent = 'View Tasks';
             }
         }
 

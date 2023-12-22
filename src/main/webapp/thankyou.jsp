@@ -8,13 +8,16 @@
     <!-- <script src="script.js" defer></script> -->
 
     <style>
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    body{
+    	margin: 0;
+    }
+	.body-container {
+	    font-family: Arial, sans-serif;
+	    background-color: #f4f4f4;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    height: 89.5vh;
     }
 
     .container {
@@ -37,22 +40,24 @@
     </style>
 </head>
 <body>
+<%@include file="navbar.jsp" %>
+	<div class="body-container">
     <div class="container">
         <h2>Thank You!</h2>
         <p id="message">Your tasks have been submitted for approval.</p>
-        <p>Login tomorrow to check the status of your tasks.</p>
 
         <form action="logout.jsp" method="post">
             <input type="submit" value="Logout" style="background-color: #007BFF; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
         </form>
     </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
     const messages = [
-        "Your tasks have been submitted for approval.",
-        "Check back tomorrow for updates on your tasks.",
-        "We've received your tasks! See you tomorrow."
+    	"Great job today! Your dedication and hard work are truly appreciated.",
+    	"You've accomplished a lot today. Well done!",
+    	"Thank you for your commitment and effort. It hasn't gone unnoticed!"
     ];
 
     // Randomly select a message from the array

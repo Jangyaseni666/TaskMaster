@@ -31,6 +31,9 @@
     </style>
 </head>
 <body>
+
+<%@include file="navbar.jsp" %>
+
     <%!
 	Connection con;
 	ResultSet rs, rs1;
@@ -40,7 +43,7 @@
 	if(!type.equals("ADMIN")){
 		response.sendRedirect("login.jsp");
 	}
-	String name = (String)session.getAttribute("name");
+	//String name = (String)session.getAttribute("name");
 %>
 
 <%
@@ -53,13 +56,11 @@ try{
 	int i = 1;
 	%>
 
-    
-
 <div class="container mt-5">
     <div class="card">
         <div class="card-header">
             <h2 class="mb-0">Admin Dashboard</h2>
-            <a href="logout.jsp" class="btn btn-danger">Logout</a>
+            <!-- <a href="logout.jsp" class="btn btn-danger">Logout</a> -->
         </div>
         <div class="card-body">
             <table class="table table-bordered table-hover">
@@ -78,6 +79,7 @@ try{
                         String nm = rs.getString(2);
                         String kind = rs.getString(4);
                         PreparedStatement ps = con.prepareStatement("select sum(marks) from empmarks where name=?");
+                        //PreparedStatement ps = con.prepareStatement("select sum(marks) from empmarks NATURAL JOIN employees where name=? and type='EMPLOYEE'");
                         ps.setString(1,nm);
                         rs1 = ps.executeQuery();
                         while(rs1.next()){

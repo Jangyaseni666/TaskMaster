@@ -2,5 +2,5 @@
 
 <%
     session.invalidate();
-    response.sendRedirect("index.html");
+    response.sendRedirect("index.jsp");
 %>

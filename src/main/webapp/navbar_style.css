@@ -1,0 +1,48 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: large;
+    background-color: #a69ed3; /* Lavender navbar */
+}
+
+.brand-name {
+    font-size: x-large;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 4px;
+    padding-left: 2%;
+    color: #ffffff; 
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff; /* White text color */
+    font-weight: bold;
+    padding: 10px 2px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #8a7bbf; /* Darker lavender hover effect */
+}
+
+nav {
+    background-color: #a69ed3; /* Lavender navbar */
+    padding: 8px 0;
+}

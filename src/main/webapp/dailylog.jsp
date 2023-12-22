@@ -27,13 +27,14 @@
 
         .log-container h2 {
             text-align: center;
+            font-style: italic;
             border-bottom: 3px solid black;
         }
 
         .welcome-container {
             text-align: center;
             padding: 10px;
-            background-color: #000;
+            background-color: #00f5ab;
             color: #fff;
             animation: fadeInUp 1s ease-out;
         }
@@ -60,11 +61,12 @@
     </style>
 </head>
 <body>
+    <%@include file="navbar.jsp" %>
 
 <div class="container">
 <%
 String type = (String)session.getAttribute("type");
-String name = (String)session.getAttribute("name");
+//String name = (String)session.getAttribute("name");
 if(name!=null){
 %>
 <div class="welcome-container">
@@ -117,7 +119,7 @@ if(name!=null){
             <!-- <div class="form-group">
                 <label>Total Points: <span id="total-points">0</span></label>
             </div> -->
-            <input type="submit" class="btn btn-primary btn-block">
+            <input type="submit" class="btn btn-secondary btn-block">
         </form>
     </div>
 </div>

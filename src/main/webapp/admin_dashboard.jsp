@@ -51,7 +51,7 @@ try{
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/iwt", "root", "");
 	System.out.println("Connected");
-	PreparedStatement pst = con.prepareStatement("select * from employees");
+	PreparedStatement pst = con.prepareStatement("select * from employees where type='EMPLOYEE'");
 	rs = pst.executeQuery();
 	int i = 1;
 	%>
@@ -78,11 +78,12 @@ try{
                     while(rs.next()){
                         String nm = rs.getString(2);
                         String kind = rs.getString(4);
-                        PreparedStatement ps = con.prepareStatement("select sum(marks) from empmarks where name=?");
-                        //PreparedStatement ps = con.prepareStatement("select sum(marks) from empmarks NATURAL JOIN employees where name=? and type='EMPLOYEE'");
+                        //PreparedStatement ps = con.prepareStatement("select sum(marks) from empmarks where name=?");
+                        PreparedStatement ps = con.prepareStatement("select sum(marks) from empmarks NATURAL JOIN employees where name=?");
                         ps.setString(1,nm);
                         rs1 = ps.executeQuery();
                         while(rs1.next()){
+                        	System.out.println(rs1);
                             sum = rs1.getInt(1);
                         }
                         String rev="";
